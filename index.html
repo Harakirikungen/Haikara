@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haikara.se</title>
+    <style>
+        /* Bakgrundsfärger beroende på tema */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        /* Ljust tema */
+        body.light {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Mörkt tema */
+        body.dark {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Texten "HAIKARA" */
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px; /* Mellanrum mellan titel och klocka */
+        }
+
+        /* Klocka */
+        .clock {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">HAIKARA</div>
+    <div class="clock" id="clock"></div>
+
+    <script>
+        // Funktion som hämtar Stockholms tid och uppdaterar klockan
+        function updateClock() {
+            // Skapa en ny Date-objekt och ställ in till Stockholmstid
+            const stockholmTime = new Date().toLocaleString("sv-SE", {
+                timeZone: "Europe/Stockholm",
+                hour12: false,
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
+
+            document.getElementById("clock").textContent = stockholmTime;
+        }
+
+        // Uppdatera klockan varje sekund
+        setInterval(updateClock, 1000);
+        updateClock(); // Första uppdatering direkt
+
+        // Kolla om användaren har ljus eller mörkt tema
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        // Byt bakgrund och textfärg beroende på tema
+        if (prefersDarkScheme) {
+            document.body.classList.add("dark");
+        } else {
+            document.body.classList.add("light");
+        }
+    </script>
+
+</body>
+</html>
