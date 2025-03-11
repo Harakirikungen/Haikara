@@ -5,7 +5,7 @@ body {
     font-family: "Baskervville SC", serif;
     color: var(--text-color);
     background-color: var(--background-color);
-    background-image: url('rome.jpg');
+    background-image: url('prague.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: darken;
