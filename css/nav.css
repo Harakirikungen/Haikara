@@ -1,0 +1,18 @@
+/* Navigation */
+nav {
+  padding: 20px;
+  text-align: center;       /* Centrerar alla länkar */
+  background-color: rgba(0,0,0,0.8); /* Mörk bakgrund */
+}
+
+nav a {
+  margin: 0 15px;           /* Mellanrum mellan länkarna */
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #7c3aed;           /* Hover-effekt */
+}

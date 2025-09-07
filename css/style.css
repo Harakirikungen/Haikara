@@ -5,11 +5,6 @@ body {
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
 }
 
-nav {
-  padding: 20px;
-  text-align: center;
-}
-
 .hero {
   height: 80vh;
   display: flex;
@@ -20,6 +15,7 @@ nav {
 
 .hero-content h1 { font-size: 3rem; }
 .hero-content p { font-size: 1.2rem; }
+
 .btn {
   background-color: #6b21a8;
   padding: 12px 24px;
