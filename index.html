@@ -1,203 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Verkstad – Sommarbil 1995</title>
-  <meta name="description" content="En gammaldags hemsida inspirerad av My Summer Car – med retrostil, CRT-effekt och små interaktiva detaljer." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tribute till Alpetor — Fanmade</title>
+  <meta name="description" content="En fan-tribute sida för YouTubekanalen Alpetor.">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #1a1d16;
-      --frame: #20231e;
-      --text: #e9f1d1;
-      --accent: #9dc97a;
-      --danger: #d47a6a;
-      --muted: #9aa08f;
-      --panel: #2a2e27;
-      --shadow: rgba(0,0,0,0.6);
+    :root{
+      --bg:#071726; /* mörk retro */
+      --accent:#7ee7f7;
+      --accent2:#ffd166;
+      --panel:#0b2533;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{background:radial-gradient(1200px 600px at 10% 10%, rgba(126,231,247,0.06), transparent),var(--bg);color:#e6f7fb;padding:24px}
+    .wrap{max-width:980px;margin:0 auto}
+
+    header{display:flex;align-items:center;gap:18px}
+    .logo{width:84px;height:84px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 6px 12px rgba(0,0,0,.6));}
+    .logo h1{font-family:'Press Start 2P',monospace;font-size:18px;margin:0;color:#052023}
+    h2,h3{margin:.2rem 0}
+
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:18px;border-radius:10px}
+
+    .blurb{font-size:14px;line-height:1.5;color:#dffcff}
+
+    .video{width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:4px solid rgba(0,0,0,.35)}
+    iframe{width:100%;height:100%;display:block;border:0}
+
+    .timeline{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+    .tl-item{display:flex;gap:12px;align-items:flex-start}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px}
+    .meta{font-size:13px;opacity:.9}
+
+    footer{margin-top:20px;font-size:13px;opacity:.85}
+
+    /* small screens */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      .logo{width:64px;height:64px}
     }
 
-    [data-theme="sepia"] {
-      --bg: #191510;
-      --frame: #241d15;
-      --text: #f4ecd8;
-      --accent: #d6b37c;
-      --danger: #c7805b;
-      --muted: #b9aa93;
-      --panel: #32281e;
-    }
+    /* pixel overlay for retro feel */
+    .grain{pointer-events:none;position:fixed;inset:0;mix-blend-mode:overlay;opacity:.06;background-image:
+      linear-gradient(transparent 50%, rgba(255,255,255,.02) 50%),
+      linear-gradient(90deg, transparent 50%, rgba(255,255,255,.02) 50%);
+      background-size:3px 3px, 3px 3px}
 
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #1a1d16;
-      color: var(--text);
-      font-family: monospace;
-    }
-
-    .crt-wrap {
-      position: relative;
-      max-width: 900px;
-      margin: 32px auto;
-      background: var(--frame);
-      border-radius: 20px;
-      box-shadow: 0 10px 35px var(--shadow);
-      padding: 16px;
-    }
-
-    .screen {
-      position: relative;
-      width: 100%;
-      min-height: 500px;
-      background-color: #111;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      background: #2a2e27;
-    }
-
-    .brand {
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    .nav { display: flex; gap: 8px; }
-
-    .btn {
-      background: #2a2e27;
-      border: 1px solid var(--muted);
-      padding: 6px 12px;
-      border-radius: 6px;
-      color: var(--text);
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      padding: 12px;
-    }
-
-    .panel {
-      background: var(--panel);
-      border-radius: 8px;
-      padding: 10px;
-    }
-
-    .panel h2 { margin-top: 0; }
-
-    .gauges { display: flex; gap: 10px; }
-    .gauge { flex: 1; background: #111; padding: 6px; text-align: center; border-radius: 6px; }
-    .value { font-size: 20px; font-weight: bold; }
-    .label { font-size: 12px; color: var(--muted); }
-
-    .log {
-      background: #000;
-      color: #0f0;
-      font-size: 12px;
-      padding: 8px;
-      margin-top: 10px;
-      height: 100px;
-      overflow-y: auto;
-    }
-
-    @media(max-width: 700px){ .grid { grid-template-columns: 1fr; } }
+    /* button */
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(180deg,var(--accent),#4ecbd6);color:#052023;font-weight:700;text-decoration:none}
+    .muted{opacity:.8;font-size:13px}
   </style>
 </head>
 <body>
-  <div class="crt-wrap">
-    <div class="screen">
-      <div class="topbar">
-        <div class="brand">Sommarbil 1995</div>
-        <nav class="nav">
-          <a class="btn" href="#garage">Garage</a>
-          <a class="btn" href="#butik">Butik</a>
-          <button class="btn" id="toggleTheme">Tema</button>
-        </nav>
+  <div class="grain" aria-hidden></div>
+  <div class="wrap">
+    <header>
+      <div class="logo" role="img" aria-label="Alpetor tribute logo">
+        <h1>ALP</h1>
       </div>
-
-      <div class="grid">
-        <section class="panel" id="garage">
-          <h2>Garage</h2>
-          <div class="gauges">
-            <div class="gauge"><div class="value" id="bygg">12%</div><div class="label">Byggstatus</div></div>
-            <div class="gauge"><div class="value" id="bultar">0</div><div class="label">Bultar</div></div>
-            <div class="gauge"><div class="value" id="kassa">1240 kr</div><div class="label">Kassa</div></div>
-          </div>
-          <button class="btn" id="skruva">Skruva</button>
-          <button class="btn" id="provstart">Provstart</button>
-          <div class="log" id="log">[12:00] Välkommen till garaget.</div>
-        </section>
-
-        <aside class="panel" id="butik">
-          <h2>Butik</h2>
-          <button class="btn" data-item="olja" data-price="100">Köp Olja (100kr)</button>
-          <button class="btn" data-item="carb" data-price="350">Köp Förgasare (350kr)</button>
-          <div class="log" id="shoplog">[12:02] Välkommen till butiken.</div>
-        </aside>
+      <div>
+        <h2 style="margin:0">Tribute till Alpetor</h2>
+        <div class="muted">Fan-sida byggd för GitHub Pages — ersätt platshållare med riktiga bilder och videor</div>
       </div>
-    </div>
+    </header>
+
+    <main class="hero">
+      <section class="card">
+        <h3>Vem är Alpetor?</h3>
+        <p class="blurb">Alpetor är (lägg till kort beskrivning här). Denna fansida hyllar videor, roliga ögonblick och kärleken för spel och berättande.</p>
+
+        <h3>Föreslagen ljud / atmosfär</h3>
+        <p class="muted">Vill du ha bakgrundsljud (t.ex. motorljud eller tema)? Lägg in en fil i repo:t och ändra <code>#bg-audio</code> i indexen.</p>
+        <audio id="bg-audio" controls preload="none">
+          <source src="audio/ambient.mp3" type="audio/mpeg">
+          Din webbläsare stödjer inte audio-elementet.
+        </audio>
+
+        <h3 style="margin-top:12px">Snabblänkar</h3>
+        <p class="muted">Byt ut <code>VIDEO_ID</code> i YouTube-iframe nedan med önskad video-id.</p>
+        <a class="btn" href="#video">Titta på utvald video</a>
+      </section>
+
+      <aside class="card">
+        <h3 id="video">Utvald video</h3>
+        <!-- BYT UT VIDEO_ID mot den riktiga YouTube-videons id -->
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video" allowfullscreen></iframe>
+        </div>
+
+        <h3 style="margin-top:12px">Snabbfakta</h3>
+        <div class="muted">
+          <strong>Plats:</strong> YouTube<br>
+          <strong>Skapare:</strong> Alpetor<br>
+          <strong>Skapad av:</strong> En fan
+        </div>
+      </aside>
+    </main>
+
+    <section class="card" style="margin-top:18px">
+      <h3>Minnen &amp; höjdpunkter</h3>
+      <div class="timeline">
+        <div class="tl-item"><div class="dot"></div><div><div class="meta"><strong>Första videon</strong> — Lägg in datum och beskrivning här.</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div><div class="meta"><strong>Största ögonblicket</strong> — Kort text om varför det är minnesvärt.</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div><div class="meta"><strong>Favoritserie</strong> — Namn på serie och varför.</div></div></div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <h3>Galleri (ersätt bilder)</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px">
+        <div style="background:#072a36;height:100px;border-radius:6px;display:flex;align-items:center;justify-content:center">Bild 1</div>
+        <div style="background:#072a36;height:100px;border-radius:6px;display:flex;align-items:center;justify-content:center">Bild 2</div>
+        <div style="background:#072a36;height:100px;border-radius:6px;display:flex;align-items:center;justify-content:center">Bild 3</div>
+        <div style="background:#072a36;height:100px;border-radius:6px;display:flex;align-items:center;justify-content:center">Bild 4</div>
+      </div>
+      <p class="muted" style="margin-top:10px">Byt ut dessa rutor mot riktiga bilder i mappen <code>/images/</code>.</p>
+    </section>
+
+    <footer>
+      <div class="muted">Instruktioner: lägg denna fil som <strong>index.html</strong> i rotmappen på ditt GitHub-repo. Aktivera GitHub Pages från repo-inställningarna (branch: main eller gh-pages). Obs: denna sida är fan-made — respektera Alpetors upphovsrätt. </div>
+    </footer>
   </div>
 
   <script>
-    let bygg = 12;
-    let bultar = 0;
-    let kassa = 1240;
+    // Liten gimmick: nostalgisk blinkning i titel
+    (function(){
+      const base = document.title;
+      let on = true;
+      setInterval(()=>{
+        document.title = on ? '✪ '+base : base;
+        on = !on;
+      },2000);
+    })();
 
-    const byggEl = document.getElementById('bygg');
-    const bultarEl = document.getElementById('bultar');
-    const kassaEl = document.getElementById('kassa');
-    const logEl = document.getElementById('log');
-    const shoplogEl = document.getElementById('shoplog');
-
-    function log(msg){
-      logEl.textContent += "\n["+new Date().toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'})+"] "+msg;
-      logEl.scrollTop = logEl.scrollHeight;
-    }
-
-    function shoplog(msg){
-      shoplogEl.textContent += "\n["+new Date().toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'})+"] "+msg;
-      shoplogEl.scrollTop = shoplogEl.scrollHeight;
-    }
-
-    document.getElementById('skruva').addEventListener('click',()=>{
-      bultar++;
-      bygg+=1;
-      bultarEl.textContent=bultar;
-      byggEl.textContent=bygg+"%";
-      log("Skruvade en bult.");
-    });
-
-    document.getElementById('provstart').addEventListener('click',()=>{
-      log(bygg>20?"Motorn hostar igång!":"Försök igen...");
-    });
-
-    document.querySelectorAll('[data-item]').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const price=parseInt(btn.getAttribute('data-price'));
-        const item=btn.getAttribute('data-item');
-        if(kassa>=price){
-          kassa-=price;
-          kassaEl.textContent=kassa+" kr";
-          shoplog("Köpte "+item);
-        }else{
-          shoplog("För lite pengar.");
-        }
-      });
-    });
-
-    document.getElementById('toggleTheme').addEventListener('click',()=>{
-      const current=document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', current==='sepia'?'':'sepia');
+    // Försök låta ljud spelas upp tyst om fil finns (autoplay-blockers kan stoppa detta)
+    window.addEventListener('load',()=>{
+      const a = document.getElementById('bg-audio');
+      if(a && a.dataset.autoplay === '1'){
+        a.volume = 0.12;
+        const p = a.play();
+        if(p && p.catch) p.catch(()=>{/* ignorera */});
+      }
     });
   </script>
 </body>
