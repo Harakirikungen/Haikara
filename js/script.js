@@ -10,17 +10,21 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
 }, appearOptions);
 faders.forEach(fader => appearOnScroll.observe(fader));
 
-// Navbar hide on scroll down / show on scroll up
+// Navbar hide/show direkt på scroll
 let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-  if (scrollTop > lastScrollTop && scrollTop > 50) {
-    navbar.style.top = "-100px"; // göm navbar
+  if (scrollTop > lastScrollTop) {
+    // scrollar ner → göm navbar
+    navbar.style.top = "-100px";
   } else {
-    navbar.style.top = "0"; // visa navbar
+    // scrollar upp → visa navbar direkt
+    navbar.style.top = "0";
   }
-  lastScrollTop = scrollTop;
+
+  // uppdatera lastScrollTop
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // säkerställ att det inte blir negativt
 });

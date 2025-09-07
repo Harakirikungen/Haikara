@@ -9,7 +9,7 @@ body {
   top: 0;
   z-index: 999;
   background-color: transparent !important;
-  transition: top 0.3s ease-in-out;
+  transition: top 0.2s ease-in-out; /* snabbare transition för direkt respons */
 }
 
 .navbar .nav-link {
