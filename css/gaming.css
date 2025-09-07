@@ -1,11 +1,13 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1a002b, #3c0d5f);
   color: white;
+  background: linear-gradient(135deg, #1a002b, #3c0d5f);
 }
 
 .gaming-hero {
+  margin: 0;
   padding: 80px 20px;
   text-align: center;
 }
@@ -26,4 +28,8 @@ body {
   max-width: 300px;
 }
 
-footer { text-align: center; padding: 20px; color: #888; }
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
