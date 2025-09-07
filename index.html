@@ -1,94 +1,204 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Verkstad – Sommarbil 1995</title>
-<meta name="description" content="En gammaldags hemsida inspirerad av My Summer Car – med retrostil, CRT-effekt och små interaktiva detaljer." />
-<style>
-/* ------------------------------
-BAS / TEMA
---------------------------------*/
-:root {
---bg: #1a1d16;
---frame: #20231e;
---text: #e9f1d1;
---accent: #9dc97a;
---danger: #d47a6a;
---muted: #9aa08f;
---glass: rgba(20, 22, 18, 0.6);
---panel: #2a2e27;
---shadow: rgba(0,0,0,0.6);
---scan: rgba(255,255,255,0.05);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verkstad – Sommarbil 1995</title>
+  <meta name="description" content="En gammaldags hemsida inspirerad av My Summer Car – med retrostil, CRT-effekt och små interaktiva detaljer." />
+  <style>
+    :root {
+      --bg: #1a1d16;
+      --frame: #20231e;
+      --text: #e9f1d1;
+      --accent: #9dc97a;
+      --danger: #d47a6a;
+      --muted: #9aa08f;
+      --panel: #2a2e27;
+      --shadow: rgba(0,0,0,0.6);
+    }
 
+    [data-theme="sepia"] {
+      --bg: #191510;
+      --frame: #241d15;
+      --text: #f4ecd8;
+      --accent: #d6b37c;
+      --danger: #c7805b;
+      --muted: #b9aa93;
+      --panel: #32281e;
+    }
 
-[data-theme="sepia"] {
---bg: #191510;
---frame: #241d15;
---text: #f4ecd8;
---accent: #d6b37c;
---danger: #c7805b;
---muted: #b9aa93;
---glass: rgba(32, 26, 20, 0.6);
---panel: #32281e;
---scan: rgba(255,240,200,0.06);
-}
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #1a1d16;
+      color: var(--text);
+      font-family: monospace;
+    }
 
+    .crt-wrap {
+      position: relative;
+      max-width: 900px;
+      margin: 32px auto;
+      background: var(--frame);
+      border-radius: 20px;
+      box-shadow: 0 10px 35px var(--shadow);
+      padding: 16px;
+    }
 
-html, body {
-height: 100%;
-margin: 0;
-background: radial-gradient(circle at 50% 30%, #2b2f28 0%, var(--bg) 60%);
-color: var(--text);
-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-letter-spacing: 0.3px;
-text-rendering: optimizeLegibility;
-image-rendering: pixelated;
-cursor: crosshair;
-}
+    .screen {
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+      background-color: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+    }
 
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background: #2a2e27;
+    }
 
-/* 4:3 CRT RAM */
-.crt-wrap {
-position: relative;
-max-width: 1100px;
-aspect-ratio: 4 / 3;
-margin: 32px auto;
-border-radius: 28px;
-background: var(--frame);
-box-shadow:
-0 10px 35px var(--shadow),
-inset 0 0 0 3px #000,
-inset 0 0 40px rgba(0,0,0,0.5);
-padding: 16px;
-}
+    .brand {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
+    .nav { display: flex; gap: 8px; }
 
-.screen {
-background-color: #111; /* fallback */
-position: relative;
-width: 100%;
-height: 100%;
-background:
-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%),
-linear-gradient(var(--scan), var(--scan)),
-repeating-linear-gradient(
-to bottom,
-rgba(255,255,255,0.06) 0px,
-rgba(255,255,255,0.00) 2px,
-rgba(0,0,0,0.10) 3px,
-rgba(0,0,0,0.10) 4px
-),
-linear-gradient(180deg, #141611, #171a14 50%, #12140f);
-border-radius: 16px;
-overflow: hidden;
-box-shadow: inset 0 0 80px rgba(0,0,0,0.8);
-}
+    .btn {
+      background: #2a2e27;
+      border: 1px solid var(--muted);
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+    }
 
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 12px;
+    }
 
-/* SLIGHT CURVE */
-.screen::after {
-content: "";
+    .panel {
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .panel h2 { margin-top: 0; }
+
+    .gauges { display: flex; gap: 10px; }
+    .gauge { flex: 1; background: #111; padding: 6px; text-align: center; border-radius: 6px; }
+    .value { font-size: 20px; font-weight: bold; }
+    .label { font-size: 12px; color: var(--muted); }
+
+    .log {
+      background: #000;
+      color: #0f0;
+      font-size: 12px;
+      padding: 8px;
+      margin-top: 10px;
+      height: 100px;
+      overflow-y: auto;
+    }
+
+    @media(max-width: 700px){ .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="crt-wrap">
+    <div class="screen">
+      <div class="topbar">
+        <div class="brand">Sommarbil 1995</div>
+        <nav class="nav">
+          <a class="btn" href="#garage">Garage</a>
+          <a class="btn" href="#butik">Butik</a>
+          <button class="btn" id="toggleTheme">Tema</button>
+        </nav>
+      </div>
+
+      <div class="grid">
+        <section class="panel" id="garage">
+          <h2>Garage</h2>
+          <div class="gauges">
+            <div class="gauge"><div class="value" id="bygg">12%</div><div class="label">Byggstatus</div></div>
+            <div class="gauge"><div class="value" id="bultar">0</div><div class="label">Bultar</div></div>
+            <div class="gauge"><div class="value" id="kassa">1240 kr</div><div class="label">Kassa</div></div>
+          </div>
+          <button class="btn" id="skruva">Skruva</button>
+          <button class="btn" id="provstart">Provstart</button>
+          <div class="log" id="log">[12:00] Välkommen till garaget.</div>
+        </section>
+
+        <aside class="panel" id="butik">
+          <h2>Butik</h2>
+          <button class="btn" data-item="olja" data-price="100">Köp Olja (100kr)</button>
+          <button class="btn" data-item="carb" data-price="350">Köp Förgasare (350kr)</button>
+          <div class="log" id="shoplog">[12:02] Välkommen till butiken.</div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let bygg = 12;
+    let bultar = 0;
+    let kassa = 1240;
+
+    const byggEl = document.getElementById('bygg');
+    const bultarEl = document.getElementById('bultar');
+    const kassaEl = document.getElementById('kassa');
+    const logEl = document.getElementById('log');
+    const shoplogEl = document.getElementById('shoplog');
+
+    function log(msg){
+      logEl.textContent += "\n["+new Date().toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'})+"] "+msg;
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function shoplog(msg){
+      shoplogEl.textContent += "\n["+new Date().toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'})+"] "+msg;
+      shoplogEl.scrollTop = shoplogEl.scrollHeight;
+    }
+
+    document.getElementById('skruva').addEventListener('click',()=>{
+      bultar++;
+      bygg+=1;
+      bultarEl.textContent=bultar;
+      byggEl.textContent=bygg+"%";
+      log("Skruvade en bult.");
+    });
+
+    document.getElementById('provstart').addEventListener('click',()=>{
+      log(bygg>20?"Motorn hostar igång!":"Försök igen...");
+    });
+
+    document.querySelectorAll('[data-item]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const price=parseInt(btn.getAttribute('data-price'));
+        const item=btn.getAttribute('data-item');
+        if(kassa>=price){
+          kassa-=price;
+          kassaEl.textContent=kassa+" kr";
+          shoplog("Köpte "+item);
+        }else{
+          shoplog("För lite pengar.");
+        }
+      });
+    });
+
+    document.getElementById('toggleTheme').addEventListener('click',()=>{
+      const current=document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current==='sepia'?'':'sepia');
+    });
+  </script>
+</body>
 </html>
-
