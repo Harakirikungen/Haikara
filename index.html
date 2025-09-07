@@ -45,7 +45,7 @@ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation 
 letter-spacing: 0.3px;
 text-rendering: optimizeLegibility;
 image-rendering: pixelated;
-cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><rect width="16" height="16" fill="white"/></svg>') 0 0, auto;
+cursor: crosshair;
 }
 
 
@@ -66,6 +66,7 @@ padding: 16px;
 
 
 .screen {
+background-color: #111; /* fallback */
 position: relative;
 width: 100%;
 height: 100%;
@@ -90,3 +91,4 @@ box-shadow: inset 0 0 80px rgba(0,0,0,0.8);
 .screen::after {
 content: "";
 </html>
+
