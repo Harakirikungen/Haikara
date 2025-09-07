@@ -15,13 +15,14 @@ let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
-  let scrollTop = window.scrollY;
-  if (scrollTop > lastScrollTop) {
-    // scroll down → hide
-    navbar.style.top = "-80px";
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop && scrollTop > 100) {
+    // scrollar ner och har scrollet mer än 100px → göm navbar
+    navbar.classList.add("navbar-hidden");
   } else {
-    // scroll up → show
-    navbar.style.top = "0";
+    // scrollar upp → visa navbar
+    navbar.classList.remove("navbar-hidden");
   }
   lastScrollTop = scrollTop;
 });
