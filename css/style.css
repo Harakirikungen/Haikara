@@ -8,11 +8,10 @@ body {
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: #1a1a1a; /* helt mörkgrå, matchar bakgrund */
+  background-color: #1a1a1a;
   transition: top 0.2s ease-in-out;
 }
 
-/* länkar */
 .navbar .nav-link {
   color: #007BFF !important;
   font-weight: bold;
@@ -39,7 +38,11 @@ h1, h2, h3 {
 }
 
 section {
-  padding: 80px 20px;
+  padding: 100px 20px; /* mer luft */
+}
+
+.section-spacing {
+  margin-bottom: 60px;
 }
 
 /* Fade-in effect */
@@ -56,7 +59,7 @@ section {
 
 footer {
   background-color: #111;
-  padding: 30px 15px;
+  padding: 40px 15px;
   text-align: center;
   margin-top: 60px;
 }
@@ -64,7 +67,7 @@ footer {
 footer a {
   color: #007BFF;
   margin: 0 10px;
-  font-size: 1.5rem;
+  font-size: 2rem;
   transition: color 0.3s;
 }
 

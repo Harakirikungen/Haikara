@@ -18,13 +18,10 @@ window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
   if (scrollTop > lastScrollTop) {
-    // scrollar ner → göm navbar
-    navbar.style.top = "-100px";
+    navbar.style.top = "-100px"; // scrollar ner → göm navbar
   } else {
-    // scrollar upp → visa navbar direkt
-    navbar.style.top = "0";
+    navbar.style.top = "0"; // scrollar upp → visa navbar direkt
   }
 
-  // uppdatera lastScrollTop
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // säkerställ att det inte blir negativt
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
