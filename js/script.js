@@ -17,12 +17,10 @@ const navbar = document.querySelector(".navbar");
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-  if (scrollTop > lastScrollTop && scrollTop > 100) {
-    // scrollar ner och har scrollet mer än 100px → göm navbar
-    navbar.classList.add("navbar-hidden");
+  if (scrollTop > lastScrollTop && scrollTop > 50) {
+    navbar.style.top = "-100px"; // göm navbar
   } else {
-    // scrollar upp → visa navbar
-    navbar.classList.remove("navbar-hidden");
+    navbar.style.top = "0"; // visa navbar
   }
   lastScrollTop = scrollTop;
 });
