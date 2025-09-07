@@ -4,110 +4,123 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Tribute till Apetor (Tor Eckhoff)</title>
-  <meta name="description" content="En fansida till Apetor – Tor Eckhoff, norsk YouTuber känd för sina isiga stunts.">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta name="description" content="En hyllningssida till Apetor – Tor Eckhoff, norsk YouTuber känd för sina isiga stunts och sin humor.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg:#071726;
-      --accent:#7ee7f7;
-      --accent2:#ffd166;
-      --panel:#0b2533;
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f8fafa;
+      color: #333;
+      line-height: 1.6;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    body{background:radial-gradient(1200px 600px at 10% 10%, rgba(126,231,247,0.06), transparent),var(--bg);color:#e6f7fb;padding:24px}
-    .wrap{max-width:980px;margin:0 auto}
-    header{display:flex;align-items:center;gap:18px}
-    .logo{width:84px;height:84px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 6px 12px rgba(0,0,0,.6));}
-    .logo h1{font-family:'Press Start 2P',monospace;font-size:18px;margin:0;color:#052023}
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:18px;border-radius:10px}
-    .blurb{font-size:14px;line-height:1.5;color:#dffcff}
-    .video{width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:4px solid rgba(0,0,0,.35)}
-    iframe{width:100%;height:100%;display:block;border:0}
-    .timeline{display:flex;flex-direction:column;gap:12px;margin-top:12px}
-    .tl-item{display:flex;gap:12px;align-items:flex-start}
-    .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px}
-    .meta{font-size:13px;opacity:.9}
-    footer{margin-top:20px;font-size:13px;opacity:.85}
-    .grain{pointer-events:none;position:fixed;inset:0;mix-blend-mode:overlay;opacity:.06;background-image:
-      linear-gradient(transparent 50%, rgba(255,255,255,.02) 50%),
-      linear-gradient(90deg, transparent 50%, rgba(255,255,255,.02) 50%);
-      background-size:3px 3px, 3px 3px}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(180deg,var(--accent),#4ecbd6);color:#052023;font-weight:700;text-decoration:none}
-    .muted{opacity:.8;font-size:13px}
+    header {
+      background: linear-gradient(120deg, #0077b6, #90e0ef);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      color: #0077b6;
+      margin-top: 0;
+    }
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 10px;
+    }
+    .timeline {
+      border-left: 3px solid #0077b6;
+      padding-left: 1rem;
+      margin-top: 1rem;
+    }
+    .timeline div {
+      margin-bottom: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
-  <div class="grain" aria-hidden></div>
-  <div class="wrap">
-    <header>
-      <div class="logo" role="img" aria-label="Apetor tribute logo"><h1>APETOR</h1></div>
-      <div><h2>Tribute till Apetor &mdash; Tor Eckhoff</h2><div class="muted">En hyllningssida byggd för GitHub Pages</div></div>
-    </header>
+  <header>
+    <h1>Tribute till Apetor</h1>
+    <p>Tor Eckhoff (1964–2021) – norsk YouTuber känd för sina iskalla stunts och humor</p>
+  </header>
 
-    <main class="hero">
-      <section class="card">
-        <h3>Vem var Apetor?</h3>
-        <p class="blurb">
-          Apetor, egentligen Tor Rathje Eckhoff (1964–2021), var en norsk YouTuber känd för sina stunts på is – ofta med vodka, nakenhet och iskallt vatten. Han laddade upp videor mellan 2006–2021, hade runt 1,4 miljoner prenumeranter och 457 miljoner visningar:contentReference[oaicite:1]{index=1}.
-        </p>
-        <h3>Fakta i korthet</h3>
-        <div class="muted">
-          <strong>Födelse:</strong> 22 november 1964, Kristiansund, Norge<br>
-          <strong>Död:</strong> 27 november 2021, efter en olycka under inspelning:contentReference[oaicite:2]{index=2}<br>
-          <strong>Yrke:</strong> YouTuber & industriarbetare på Jotun i Sandefjord:contentReference[oaicite:3]{index=3}<br>
-          <strong>Stil:</strong> Zen och absurd — nästan tyst, ofta med vodka, vintersporter och bisarra iscener:contentReference[oaicite:4]{index=4}
-        </div>
-        <a class="btn" href="#video">Titta på en av hans mest ikoniska videor</a>
-      </section>
+  <div class="container">
+    <section class="card">
+      <h2>Om Apetor</h2>
+      <p>
+        Apetor, egentligen Tor Rathje Eckhoff, var en norsk YouTuber som blev känd för sina unika videor med is, kyla, humor och vodka. 
+        Hans personlighet och absurda humor gjorde honom till en internationell kultfigur. Kanalen startade 2006 och nådde över 1,4 miljoner prenumeranter.
+      </p>
+    </section>
 
-      <aside class="card">
-        <h3 id="video">Utvald video: The First Snow 4</h3>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/wFi-xf9kMnI" title="The First Snow 4 — Apetor" allowfullscreen></iframe>
-        </div>
-        <h3>Statistik & mest populära videor</h3>
-        <div class="muted">
-          En av hans mest populära videor är "The First Snow 4", med över 100 miljoner visningar:contentReference[oaicite:5]{index=5}.<br>
-          Andra populära klipp: "On Thin Ice 9", "The Haircut", "The Dog", med miljonantal visningar:contentReference[oaicite:6]{index=6}.
-        </div>
-      </aside>
-    </main>
+    <section class="card video">
+      <h2>Utvald video</h2>
+      <iframe src="https://www.youtube.com/embed/wFi-xf9kMnI" title="The First Snow 4 — Apetor" allowfullscreen></iframe>
+      <p><em>En av hans mest ikoniska videor – "The First Snow 4".</em></p>
+    </section>
 
-    <section class="card" style="margin-top:18px">
-      <h3>Timeline & höjdpunkter</h3>
+    <section class="card">
+      <h2>Höjdpunkter</h2>
       <div class="timeline">
-        <div class="tl-item"><div class="dot"></div><div><div class="meta"><strong>2006</strong> – Blev medlem på YouTube (10 oktober) och laddade upp sin första video dagen efter:contentReference[oaicite:7]{index=7}.</div></div></div>
-        <div class="tl-item"><div class="dot"></div><div><div class="meta"><strong>2011</strong> – Genombrott med "On Thin Sea Ice 2" med miljonantal visningar:contentReference[oaicite:8]{index=8}.</div></div></div>
-        <div class="tl-item"><div class="dot"></div><div><div class="meta"><strong>2017</strong> – Släppte "The First Snow 4", som blev kanalens mest sedda video (100M+ visningar):contentReference[oaicite:9]{index=9}.</div></div></div>
-        <div class="tl-item"><div class="dot"></div><div><div class="meta"><strong>2021</strong> – Lade upp sista videon, "I am Not Dead, I am 57 Today" (22 november), och dog tragiskt 27 november under inspelning:contentReference[oaicite:10]{index=10}.</div></div></div>
+        <div><strong>2006:</strong> Startade sin YouTube-kanal och laddade upp första videon.</div>
+        <div><strong>2011:</strong> Genombrott med videon "On Thin Sea Ice 2".</div>
+        <div><strong>2017:</strong> "The First Snow 4" blev hans mest sedda video med över 100 miljoner visningar.</div>
+        <div><strong>2021:</strong> Sista videon "I am Not Dead, I am 57 Today" laddades upp kort innan hans tragiska bortgång.</div>
       </div>
     </section>
 
-    <section class="card" style="margin-top:18px">
-      <h3>Galleri</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px">
-        <img src="https://i.imgur.com/IMAGE1.jpg" alt="Apetor i isvak" style="width:100%;border-radius:6px">
-        <img src="https://i.imgur.com/IMAGE2.jpg" alt="Apetor vinterstunt" style="width:100%;border-radius:6px">
-        <img src="https://i.imgur.com/IMAGE3.jpg" alt="Apetor med motorsåg" style="width:100%;border-radius:6px">
-        <img src="https://i.imgur.com/IMAGE4.jpg" alt="Apetor uttryck" style="width:100%;border-radius:6px">
+    <section class="card">
+      <h2>Galleri</h2>
+      <div class="gallery">
+        <img src="https://i.imgur.com/8VkQnZK.jpg" alt="Apetor i isvak">
+        <img src="https://i.imgur.com/pPp9N6f.jpg" alt="Apetor vinterstunt">
+        <img src="https://i.imgur.com/1h5Yy5s.jpg" alt="Apetor med motorsåg">
+        <img src="https://i.imgur.com/3oytswM.jpg" alt="Apetor på isen">
       </div>
-      <p class="muted" style="margin-top:10px">Byt ut länkarna ovan mot riktiga bildfiler i ditt repo (t.ex. `/images/apetor1.jpg`).</p>
     </section>
-
-    <footer>
-      <div class="muted">
-        Instruktioner: Spara som <strong>index.html</strong>. Ladda upp till GitHub-repo och aktivera GitHub Pages för att publicera sidan. En fan-made-sida — visa respect för Apetors arv och upphovsrätt.
-      </div>
-    </footer>
   </div>
 
-  <script>
-    (function(){
-      const base=document.title; let on=true;
-      setInterval(()=>{ document.title = on? '❄ '+base : base; on=!on },2000);
-    })();
-  </script>
+  <footer>
+    <p>Denna sida är skapad som en fan-tribute till Apetor. Alla videor och bilder tillhör respektive ägare.</p>
+  </footer>
 </body>
 </html>
