@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1a002b, #3c0d5f);
+  color: white;
+}
+
+nav { padding: 20px; text-align: center; }
+
+.gaming-hero {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.card {
+  background-color: rgba(50,0,80,0.85);
+  border-radius: 16px;
+  padding: 20px;
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+
+footer { text-align: center; padding: 20px; color: #888; }
