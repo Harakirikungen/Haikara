@@ -5,45 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ey Bro Gaming</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/custom.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand text-primary fw-bold" href="index.html">Ey Bro Gaming</a>
-      <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Hem</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">Om oss</a></li>
-          <li class="nav-item"><a class="nav-link" href="members.html">Medlemmar</a></li>
-          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Kontakt</a></li>
-        </ul>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-primary fw-bold" href="#">Ey Bro Gaming</a>
+    <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#about">Om oss</a></li>
+        <li class="nav-item"><a class="nav-link" href="#members">Medlemmar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="vh-100 d-flex flex-column justify-content-center align-items-center text-center fade-in">
+  <h1 class="display-3 fw-bold">Ey Bro Gaming</h1>
+  <p class="lead">Gaming. Gemenskap. Broship. Allt i ett crew.</p>
+  <a href="#about" class="btn btn-custom btn-lg mt-3">Läs mer</a>
+</header>
+
+<!-- About -->
+<section id="about" class="container text-center fade-in">
+  <h2 class="fw-bold mb-4">Om oss</h2>
+  <p class="lead">Vi är Ey Bro Gaming – ett gäng vänner som älskar gaming, musik och resor. Vi bygger gemenskap både online och IRL.</p>
+</section>
+
+<!-- Members -->
+<section id="members" class="container text-center fade-in">
+  <h2 class="fw-bold mb-5">Medlemmar</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card bg-dark text-white shadow">
+        <div class="card-body">
+          <h3 class="card-title">Player 1</h3>
+          <p class="card-text">FPS-specialist</p>
+        </div>
       </div>
     </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="d-flex flex-column justify-content-center align-items-center text-center vh-100">
-    <h1 class="display-3 fw-bold">Ey Bro Gaming</h1>
-    <p class="lead">Gaming. Gemenskap. Broship. Allt i ett crew.</p>
-    <a href="about.html" class="btn btn-custom btn-lg mt-3">Läs mer</a>
-  </section>
-
-  <!-- Features -->
-  <section class="container py-5">
-    <div class="row text-center">
-      <div class="col-md-3"><h3>🎮 Turneringar</h3><p>Delta i våra tävlingar.</p></div>
-      <div class="col-md-3"><h3>🍻 Gemenskap</h3><p>Stark broship-kultur.</p></div>
-      <div class="col-md-3"><h3>📺 Streams</h3><p>Twitch & YouTube highlights.</p></div>
-      <div class="col-md-3"><h3>✈️ Resor</h3><p>Festivaler & gaming events.</p></div>
+    <div class="col-md-4">
+      <div class="card bg-dark text-white shadow">
+        <div class="card-body">
+          <h3 class="card-title">Player 2</h3>
+          <p class="card-text">Strateg & lagledare</p>
+        </div>
+      </div>
     </div>
-  </section>
+    <div class="col-md-4">
+      <div class="card bg-dark text-white shadow">
+        <div class="card-body">
+          <h3 class="card-title">Player 3</h3>
+          <p class="card-text">Streamer & content creator</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Events -->
+<section id="events" class="container text-center fade-in">
+  <h2 class="fw-bold mb-4">Events</h2>
+  <ul class="list-group">
+    <li class="list-group-item bg-dark text-white">LAN Party – Oktober 2025</li>
+    <li class="list-group-item bg-dark text-white">DreamHack Resa – November 2025</li>
+    <li class="list-group-item bg-dark text-white">Bro Gaming Cup – December 2025</li>
+  </ul>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="container text-center fade-in">
+  <h2 class="fw-bold mb-4">Kontakt</h2>
+  <form class="mx-auto" style="max-width:600px;">
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Ditt namn">
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" placeholder="Din e-post">
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control" rows="4" placeholder="Skriv ditt meddelande här..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-custom">Skicka</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>
+    <a href="https://discord.com" target="_blank"><i class="bi bi-discord"></i></a>
+    <a href="https://twitch.tv" target="_blank"><i class="bi bi-twitch"></i></a>
+    <a href="https://youtube.com" target="_blank"><i class="bi bi-youtube"></i></a>
+    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter-x"></i></a>
+  </div>
+  <p>© 2025 Ey Bro Gaming. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
