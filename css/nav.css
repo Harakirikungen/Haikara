@@ -1,18 +1,20 @@
-/* Navigation */
 nav {
   padding: 20px;
-  text-align: center;       /* Centrerar alla länkar */
-  background-color: rgba(0,0,0,0.8); /* Mörk bakgrund */
+  text-align: center;       
+  background-color: rgba(0,0,0,0.8);
+  margin: 0;                
 }
 
 nav a {
-  margin: 0 15px;           /* Mellanrum mellan länkarna */
+  margin: 0 15px;
   color: white;
   font-weight: bold;
   font-size: 1.1rem;
   transition: color 0.3s;
+  text-decoration: none;    /* Tar bort understrykning */
 }
 
 nav a:hover {
-  color: #7c3aed;           /* Hover-effekt */
+  color: #7c3aed;
+  text-decoration: none;    /* Ingen understrykning på hover */
 }
