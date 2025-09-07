@@ -1,4 +1,5 @@
 body {
+  font-family: 'Press Start 2P', cursive;
   background-color: #1a1a1a;
   color: #fff;
   scroll-behavior: smooth;
@@ -31,18 +32,29 @@ h1, h2, h3 {
   color: white;
   border-radius: 12px;
   font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn-custom:hover {
   background-color: #66b2ff;
+  transform: scale(1.05);
 }
 
 section {
-  padding: 100px 20px; /* mer luft */
+  padding: 100px 20px;
 }
 
 .section-spacing {
   margin-bottom: 60px;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 /* Fade-in effect */
@@ -68,11 +80,12 @@ footer a {
   color: #007BFF;
   margin: 0 10px;
   font-size: 2rem;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.2s;
 }
 
 footer a:hover {
   color: #66b2ff;
+  transform: scale(1.2);
 }
 
 footer p {
