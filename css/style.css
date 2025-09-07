@@ -8,8 +8,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: rgba(26, 26, 26, 0.9); /* mörkgrå med lite transparens */
-  transition: top 0.2s ease-in-out, background-color 0.3s ease;
+  background-color: #1a1a1a; /* helt mörkgrå, matchar bakgrund */
+  transition: top 0.2s ease-in-out;
 }
 
 /* länkar */
