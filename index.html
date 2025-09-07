@@ -7,22 +7,40 @@
   <meta name="description" content="En hyllningssida till Apetor – Tor Eckhoff, norsk YouTuber känd för sina isiga stunts och sin humor.">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      color-scheme: light dark;
+      --bg-light: #f8fafa;
+      --bg-dark: #0e1a21;
+      --text-light: #333;
+      --text-dark: #f1f1f1;
+      --card-light: #fff;
+      --card-dark: #1b2a33;
+      --accent: #0077b6;
+      --accent-alt: #90e0ef;
+    }
+
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: #f8fafa;
-      color: #333;
+      background: var(--bg-light);
+      color: var(--text-light);
       line-height: 1.6;
     }
+    @media (prefers-color-scheme: dark) {
+      body { background: var(--bg-dark); color: var(--text-dark); }
+      .card { background: var(--card-dark); color: var(--text-dark); }
+      header { background: linear-gradient(120deg, #023e8a, #0077b6); }
+    }
+
     header {
-      background: linear-gradient(120deg, #0077b6, #90e0ef);
+      background: linear-gradient(120deg, var(--accent), var(--accent-alt));
       color: white;
       padding: 2rem 1rem;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
     }
     header p {
       margin-top: 0.5rem;
@@ -34,14 +52,14 @@
       padding: 1.5rem;
     }
     .card {
-      background: white;
+      background: var(--card-light);
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
     h2 {
-      color: #0077b6;
+      color: var(--accent);
       margin-top: 0;
     }
     .video iframe {
@@ -51,13 +69,11 @@
       border-radius: 10px;
     }
     .timeline {
-      border-left: 3px solid #0077b6;
+      border-left: 3px solid var(--accent);
       padding-left: 1rem;
       margin-top: 1rem;
     }
-    .timeline div {
-      margin-bottom: 1rem;
-    }
+    .timeline div { margin-bottom: 1rem; }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
@@ -71,9 +87,12 @@
     footer {
       text-align: center;
       font-size: 0.9rem;
-      color: #555;
+      color: #777;
       padding: 2rem 1rem;
       margin-top: 2rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      footer { color: #aaa; }
     }
   </style>
 </head>
@@ -87,8 +106,10 @@
     <section class="card">
       <h2>Om Apetor</h2>
       <p>
-        Apetor, egentligen Tor Rathje Eckhoff, var en norsk YouTuber som blev känd för sina unika videor med is, kyla, humor och vodka. 
-        Hans personlighet och absurda humor gjorde honom till en internationell kultfigur. Kanalen startade 2006 och nådde över 1,4 miljoner prenumeranter.
+        Tor Rathje Eckhoff, mest känd som <strong>Apetor</strong>, föddes i Kristiansund, Norge. Han arbetade på färgfabriken Jotun i Sandefjord men blev känd över hela världen genom sin YouTube-kanal, där han med ett unikt uttryck filmade sig själv i extrema situationer med is, snö, skridskor och vodka. Hans humor, mod och värme gjorde honom till en ikon på plattformen.
+      </p>
+      <p>
+        Vid tiden för sin död hade han över 1,4 miljoner prenumeranter och nästan en halv miljard visningar. Han inspirerade miljontals tittare med sin blandning av absurditet och äkta glädje.
       </p>
     </section>
 
@@ -101,20 +122,29 @@
     <section class="card">
       <h2>Höjdpunkter</h2>
       <div class="timeline">
-        <div><strong>2006:</strong> Startade sin YouTube-kanal och laddade upp första videon.</div>
-        <div><strong>2011:</strong> Genombrott med videon "On Thin Sea Ice 2".</div>
-        <div><strong>2017:</strong> "The First Snow 4" blev hans mest sedda video med över 100 miljoner visningar.</div>
-        <div><strong>2021:</strong> Sista videon "I am Not Dead, I am 57 Today" laddades upp kort innan hans tragiska bortgång.</div>
+        <div><strong>2006:</strong> Startade sin YouTube-kanal och laddade upp sin första video.</div>
+        <div><strong>2011:</strong> Genombrott med videon "On Thin Sea Ice 2" som blev viralt.</div>
+        <div><strong>2017:</strong> "The First Snow 4" blev kanalens mest sedda video med över 100 miljoner visningar.</div>
+        <div><strong>2021:</strong> Publicerade sista videon "I am Not Dead, I am 57 Today" bara dagar före sin bortgång.</div>
       </div>
     </section>
 
     <section class="card">
-      <h2>Galleri</h2>
+      <h2>Bilder på Apetor</h2>
       <div class="gallery">
-        <img src="https://i.imgur.com/8VkQnZK.jpg" alt="Apetor i isvak">
-        <img src="https://i.imgur.com/pPp9N6f.jpg" alt="Apetor vinterstunt">
-        <img src="https://i.imgur.com/1h5Yy5s.jpg" alt="Apetor med motorsåg">
-        <img src="https://i.imgur.com/3oytswM.jpg" alt="Apetor på isen">
+        <img src="https://i.imgur.com/pPp9N6f.jpg" alt="Apetor i isvak">
+        <img src="https://i.imgur.com/8VkQnZK.jpg" alt="Apetor på skridskor">
+        <img src="https://i.imgur.com/1h5Yy5s.jpg" alt="Apetor med motorsåg på isen">
+        <img src="https://i.imgur.com/3oytswM.jpg" alt="Apetor ler mot kameran">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Fler videor</h2>
+      <div class="gallery">
+        <iframe src="https://www.youtube.com/embed/igNmQH23C88" title="I am Not Dead, I am 57 Today" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/v4RJwWe2wzo" title="On Thin Ice 9" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dkc8iH3cKVo" title="The Haircut" allowfullscreen></iframe>
       </div>
     </section>
   </div>
