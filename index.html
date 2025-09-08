@@ -141,15 +141,16 @@
 <section id="contact" class="container text-center fade-in section-spacing">
   <h2 class="fw-bold mb-4">Kontakt</h2>
   <p>Vill du bli medlem eller bara säga hej? Fyll i formuläret nedan så återkommer vi så snart vi kan.</p>
-  <form class="mx-auto mt-4" style="max-width:600px;">
+
+  <form class="mx-auto mt-4" style="max-width:600px;" action="https://formspree.io/f/xkgozrgo" method="POST">
     <div class="mb-3">
-      <input type="text" class="form-control form-control-lg" placeholder="Ditt namn">
+      <input type="text" name="name" class="form-control form-control-lg" placeholder="Ditt namn" required>
     </div>
     <div class="mb-3">
-      <input type="email" class="form-control form-control-lg" placeholder="Din e-post">
+      <input type="email" name="email" class="form-control form-control-lg" placeholder="Din e-post" required>
     </div>
     <div class="mb-3">
-      <textarea class="form-control form-control-lg" rows="4" placeholder="Skriv ditt meddelande här..."></textarea>
+      <textarea name="message" class="form-control form-control-lg" rows="4" placeholder="Skriv ditt meddelande här..." required></textarea>
     </div>
     <button type="submit" class="btn btn-custom btn-lg">Skicka</button>
   </form>
