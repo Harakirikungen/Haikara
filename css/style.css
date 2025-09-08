@@ -123,12 +123,12 @@ footer p {
 /* Skicka-knappen */
 #contact .btn-custom {
   background-color: #80E1F0;
-  color: #000000;
+  color: #444444;
   border: none;
 }
 
 #contact .btn-custom:hover {
   background-color: #5fd1e0;
-  color: #000000;
+  color: #2a2a2a;
 }
 
