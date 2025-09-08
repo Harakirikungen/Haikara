@@ -98,3 +98,37 @@ footer p {
   margin-top: 15px;
   font-size: 0.9rem;
 }
+/* Kontaktformulär */
+#contact .form-control {
+  background-color: #2a2a2a; /* mörk bakgrund */
+  color: #ffffff;            /* textfärg */
+  border: 1px solid #444444; /* mörk kant */
+  border-radius: 0.5rem;     /* rundade hörn */
+}
+
+/* Placeholder text */
+#contact .form-control::placeholder {
+  color: #a0a0a0; /* ljusgrå placeholder */
+}
+
+/* Fokus-effekt */
+#contact .form-control:focus {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #80E1F0; /* blå kant vid fokus */
+  box-shadow: 0 0 0 0.2rem rgba(128, 225, 240, 0.5);
+  outline: none;
+}
+
+/* Skicka-knappen */
+#contact .btn-custom {
+  background-color: #80E1F0;
+  color: #000000;
+  border: none;
+}
+
+#contact .btn-custom:hover {
+  background-color: #5fd1e0;
+  color: #000000;
+}
+
