@@ -1,31 +1,60 @@
 body {
-  font-family: 'Press Start 2P', cursive;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
   background-color: #1a1a1a;
   color: #fff;
   scroll-behavior: smooth;
 }
 
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 999;
   background-color: #1a1a1a;
-  transition: top 0.2s ease-in-out;
+  border-bottom: 1px solid #333;
+  padding: 0.5rem 1rem;
+  z-index: 999;
 }
 
-.navbar .navbar-brand {
-    color: #80E1F0 !important;
-    font-weight: bold;
+/* Loggan */
+.navbar-logo img {
+  height: 32px;
+  width: auto;
 }
 
+/* Flex-container */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Länkar */
 .navbar .nav-link {
   color: #80E1F0 !important;
   font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .navbar .nav-link:hover {
-  color: #80E1F0 !important;
+  color: #5fd1e0 !important;
   text-decoration: none;
+}
+
+/* Hamburgerikon */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(128,225,240, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Dölj loggan när mobilmenyn är öppen */
+@media (max-width: 991px) {
+  .navbar-collapse.show ~ .navbar-logo {
+    display: none !important;
+  }
 }
 
 h1, h2, h3 {
