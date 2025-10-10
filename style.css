@@ -1,0 +1,63 @@
+/* Grundstil */
+:root {
+  --bg-color: #1e1f22;
+  --text-color: #e5e7eb;
+  --accent-color: #00bfa6; /* turkos – kan bytas! */
+  --card-bg: #2a2b2f;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(180deg, #2b2d31, transparent);
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.countdown {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #333;
+  font-size: 0.9rem;
+  color: #aaa;
+}
